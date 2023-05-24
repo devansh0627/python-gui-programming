@@ -3,7 +3,7 @@ import requests
 window=Tk()
 window.title("Weather App")
 window.geometry("400x250")
-window.minsize(400,200)
+window.minsize(400,250)
 def get_weather():
     country = country_entry.get()
     city = city_entry.get()
