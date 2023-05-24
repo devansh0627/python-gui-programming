@@ -1,13 +1,9 @@
 from tkinter import *
 import requests
-"""def move_circle(event):
-    canvas.coords(circle, event.x-25, event.y-25, event.x+25, event.y+25)"""
 window=Tk()
 window.title("Weather App")
-window.geometry("400x200")
+window.geometry("400x250")
 window.minsize(400,200)
-"""canvas =Canvas(window, width=400, height=300)
-canvas.pack()"""
 def get_weather():
     country = country_entry.get()
     city = city_entry.get()
@@ -23,12 +19,15 @@ def get_weather():
         humidity = data["current"]["humidity"]
         wind_speed = data["current"]["wind_speed"]
         cloud_cover = data["current"]["cloudcover"]
+        current_time = data["location"]["localtime"]
 
         weather_label.config(text=f"Temperature: {temperature}°C\n"
                                   f"Weather: {weather_description}\n"
                                   f"Humidity: {humidity}%\n"
                                   f"Wind Speed: {wind_speed} km/h\n"
-                                  f"Cloud Cover: {cloud_cover}%")
+                                  f"Cloud Cover: {cloud_cover}%\n"
+                                  f"Current Time: {current_time}")
+
 country_label = Label(window, text="Country:")
 country_label.pack()
 country_entry =Entry(window,relief=SUNKEN,borderwidth=3)
